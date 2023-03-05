@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <!-- ir.actions -->
+
+        <record id="add_new_tg_user_action" model="ir.actions.act_window">
+            <field name="name">Add new user</field>
+            <field name="res_model">tg.users</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+</odoo>

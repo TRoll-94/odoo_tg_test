@@ -1,0 +1,44 @@
+version: "3"
+services:
+
+    db:
+        image: postgres:12.10-alpine
+        expose:
+            - 5432
+        ports:
+            - "4441:5432"
+        volumes:
+            - ./.docker/postgresql/:/var/lib/postgresql/data
+        environment:
+            - POSTGRES_USER=test
+            - POSTGRES_PASSWORD=test
+            - POSTGRES_DB=postgres
+
+    odoo:
+        image: odoo:16.0
+        ports:
+            -   "4442:8069"
+        volumes:
+            -   ./addons:/mnt/extra-addons
+        environment:
+            - HOST=db
+            - USER=test
+            - PASSWORD=test
+        depends_on:
+            -   db
+
+    redis:
+        image: redis:6.2.6-alpine
+
+    tg_bot:
+        command: sh -c  "python ./bot/main.py"
+        build:
+            context: ./bot
+            dockerfile: Dockerfile
+        env_file:
+            -   ./bot/.env
+        volumes:
+            - ./bot:/code
+        restart: on-failure
+        depends_on:
+            -   redis

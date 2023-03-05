@@ -1,0 +1,4 @@
+aiogram==2.18
+emoji==1.4.2
+odoo-rpc-client==1.2.0
+git+https://github.com/aio-libs/aioredis@master#egg=aioredis

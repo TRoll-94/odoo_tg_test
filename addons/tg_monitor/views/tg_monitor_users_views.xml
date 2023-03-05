@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="tg_monitor_users_form" model="ir.ui.view">
+        <field name="name">tg_monitor.user.form</field>
+        <field name="model">tg.users</field>
+        <field name="arch" type="xml">
+            <form string="TG User">
+                <sheet>
+                    <h1>Create new TG User</h1>
+                    <div>
+                        <div>
+                            <label for="tg_id"/>
+                        </div>
+                        <h1>
+                            <field name="tg_id"/>
+                        </h1>
+                        <div>
+                            <label for="user_id"/>
+                        </div>
+                        <h1>
+                            <field name="user_id"/>
+                        </h1>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_delivery_carrier_search" model="ir.ui.view">
+        <field name="name">g_monitor.user.search</field>
+        <field name="model">tg.users</field>
+        <field name="arch" type="xml">
+            <search string="TG User">
+                <field name="tg_id" string="TG id" />
+                <field name="user_id" string="User" />
+            </search>
+        </field>
+    </record>
+
+    <record id="tg_monitor_users_views" model="ir.ui.view">
+        <field name="model">tg.users</field>
+        <field name="priority" eval="8"/>
+        <field name="arch" type="xml">
+            <tree string="Menu">
+                <field name="tg_id"/>
+                <field name="user_id"/>
+            </tree>
+        </field>
+    </record>
+
+</odoo>

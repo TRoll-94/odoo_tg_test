@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="tg_monitor_menu_root" name="Tg monitor">
+        <menuitem id="tg_monitor_first_level_menu" name="Users">
+            <menuitem id="tg_monitor_model_menu_action" action="add_new_tg_user_action"/>
+        </menuitem>
+    </menuitem>
+</odoo>
